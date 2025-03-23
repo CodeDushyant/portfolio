@@ -66,6 +66,73 @@ nav a:hover img {
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 400px) {
+  #hero {
+    padding-top: 6rem; /* Adjust as needed */
+  }
+  
+  #name {
+    font-size: 2.5rem; /* 40px */
+  }
+  
+  #role {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  #about {
+    font-size: 0.875rem; /* 14px */
+    text-align: justify;
+  }
+  .top{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+  #resume {
+    padding: 0.75rem 2rem; /* Adjust button size */
+  }
+  .iccon{
+  width: 15px;
+  height: 15px;
+}
+
+  #profile-pic {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 550px) {
+  #hero {
+    padding-top: 6rem; /* Adjust as needed */
+  }
+  
+  #name {
+    font-size: 2.5rem; /* 40px */
+  }
+  
+  #role {
+    font-size: 1.5rem; /* 24px */
+  }
+.iccon{
+  width: 20px;
+  height: 20px;
+}
+  #about {
+    font-size: 0.875rem; /* 14px */
+    text-align: justify;
+  }
+  
+  #resume {
+    padding: 0.75rem 2rem; /* Adjust button size */
+  }
+
+  #profile-pic {
+    width: 230px;
+    height: 230px;
+  }
+}
+
+
 </style>
 <link rel="icon" href="./images/favikon.png" type="image/png">
 </head>
@@ -80,19 +147,20 @@ nav a:hover img {
       <a href="#projects"  class="mx-4 ani">Projects</a>
       <a href="#contact" class="mx-4 ani">Contact</a>
     </nav>
-    <nav class="flex relative">
-      <a href="https://www.linkedin.com/in/dushyant-chauhan-825a46288/" target="_blank" class="mx-4 relative">
+    <nav class="flex relative top">
+      <a href="https://www.linkedin.com/in/dushyant-chauhan-825a46288/" target="_blank" class="iccon mx-4 relative">
         <img src="./images/linkedin.png" alt="LinkedIn" class="bg-white bg-cover border border-black rounded w-8 h-8 md:w-8 md:h-8 sm:w-6 sm:h-6">
       </a>
-      <a href="https://github.com/CodeDushyant" target="_blank" class="mx-4 relative">
+      <a href="https://github.com/CodeDushyant" target="_blank" class="mx-4 relative iccon">
         <img src="./images/gith.png" alt="GitHub" class="rounded-full w-8 h-8 md:w-8 md:h-8 sm:w-5 sm:h-5">
       </a>
     </nav>
+    
   </header>
 
   <!-- Hero Section -->
   <section class="h-screen w-full flex items-center justify-center">
-    <div class="flex flex-col md:flex-row items-center gap-10 w-full max-w-6xl  px-6 md:px-10 md:pt-0 pt-36" id="hero">
+    <div class="flex flex-col md:flex-row items-center gap-10 w-full max-w-6xl  px-6 md:px-10 md:pt-0 pt-36 sm:pt-3" id="hero">
       <div class="flex-1 text-center md:text-left order-2 md:order-1">
         <h2 class="text-5xl md:text-7xl font-bold opacity-0 translate-x-[-100%]" id="name">Dushyant Singh Chauhan</h2>
         <p class="mt-4 text-2xl md:text-3xl opacity-0 translate-x-[-100%]" id="role">Full Stack Developer</p>
