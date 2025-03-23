@@ -8,10 +8,43 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <style>
+  html {
+  scroll-behavior: smooth;
+}
     body {
   background-color: black;
   margin: 0;
   overflow-x: hidden;
+}
+/* Navigation Link Hover Effects */
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.ani:hover {
+  transform: scale(1.1); /* Scale the text */
+  color: #3b82f6; /* Change text color on hover (optional) */
+}
+
+.ani::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust the distance of the underline from the text */
+  width: 100%;
+  height: 2px; /* Thickness of the underline */
+  background-color: #3b82f6; /* Color of the underline */
+  transform: scaleX(0); /* Initially hide the underline */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1); /* Show the underline on hover */
+  transform-origin: bottom left;
 }
 
 .fixed-gradient {
@@ -24,7 +57,14 @@
   background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent 60%);
   z-index: -1;
 }
+nav a img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+nav a:hover img {
+  transform: scale(1.2);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
 
 </style>
 <link rel="icon" href="./images/favikon.png" type="image/png">
@@ -33,38 +73,42 @@
   <!-- Header -->
   <div class="fixed-gradient"></div>
 
-  <header class="p-5 flex justify-between items-center">
+  <header class="pt-5 pl-5 pr-5 flex justify-between items-center">
     <h1 class="text-3xl font-bold">DC</h1>
-    <nav class="flex">
-        <a href="https://www.linkedin.com/in/dushyant-chauhan-825a46288/" target="_blank" class="mx-4">
-            <img src="./images/linke.png" alt="LinkedIn" class="bg-white rounded w-6 h-6">
-          </a>
-          <a href="https://github.com/CodeDushyant" target="_blank" class="mx-4">
-            <img src="./images/gith.png" alt="GitHub" class=" rounded-full w-6 h-6">
-          </a>
-          
+    <nav class="flex mx-auto">
+      <a href="#skills" class="mx-4 ani">Skills</a>
+      <a href="#projects"  class="mx-4 ani">Projects</a>
+      <a href="#contact" class="mx-4 ani">Contact</a>
+    </nav>
+    <nav class="flex relative">
+      <a href="https://www.linkedin.com/in/dushyant-chauhan-825a46288/" target="_blank" class="mx-4 relative">
+        <img src="./images/linkedin.png" alt="LinkedIn" class="bg-white bg-cover border border-black rounded w-8 h-8">
+      </a>
+      <a href="https://github.com/CodeDushyant" target="_blank" class="mx-4 relative">
+        <img src="./images/gith.png" alt="GitHub" class="rounded-full w-8 h-8">
+      </a>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="h-screen w-full flex items-center justify-center">
-    <div class="flex flex-col md:flex-row items-center gap-10 w-full max-w-6xl px-6 md:px-10" id="hero">
-      <div class="flex-1 text-center md:text-left">
+    <div class="flex flex-col md:flex-row items-center gap-10 w-full max-w-6xl  px-6 md:px-10 md:pt-0 " id="hero">
+      <div class="flex-1 text-center md:text-left order-2 md:order-1">
         <h2 class="text-5xl md:text-7xl font-bold opacity-0 translate-x-[-100%]" id="name">Dushyant Singh Chauhan</h2>
         <p class="mt-4 text-2xl md:text-3xl opacity-0 translate-x-[-100%]" id="role">Full Stack Developer</p>
-        <p class="mt-4 text-gray-400 max-w-lg opacity-0 translate-x-[-100%] text-lg" id="about">I specialize in creating scalable web applications with modern technologies. Passionate about learning and building impactful solutions.</p>
-        <a href="/resume.pdf" class="mt-8 inline-block bg-white text-black border border-white py-3 px-8 rounded-full opacity-0 translate-x-[-100%] text-lg" id="resume" download="Dushyant_Resume.pdf">Download Resume</a>
+        <p class="mt-4 text-gray-400 max-w-lg opacity-0 translate-x-[-100%] text-lg text-justify" id="about">I am a full-stack developer specializing in creating scalable web applications using modern technologies. With a passion for learning and innovation, I focus on building impactful solutions that solve real-world problems. My expertise spans both front-end and back-end development, allowing me to create seamless and efficient user experiences.</p>
+        <a href="https://github.com/CodeDushyant/resume/blob/main/resume.pdf" target="_blank" class="mt-8 inline-block bg-white text-black border border-white py-3 px-8 rounded-full opacity-0 translate-x-[-100%] text-lg" id="resume" download="Dushyant_Resume.pdf">Download Resume</a>
       </div>
-      <div class="flex-1 flex justify-center items-center">
+      <div class="flex-1 flex justify-center items-center order-1 md:order-2">
         <img src="./images/profile1.jpg" alt="Profile Picture" class="w-64 md:w-[450px] h-64 md:h-[450px] object-cover rounded-lg border border-gray-700 opacity-0 translate-x-[100%]" id="profile-pic" />
       </div>
     </div>
   </section>
 
   <!-- Technologies Section with Wave Animation -->
-  <section class="py-20 overflow-hidden">
+  <section class="md:py-20 py-36 overflow-hidden" id="skills">
     <div class="container mx-auto px-6 text-center">
-      <h3 class="text-4xl font-bold">Language & Technologies</h3>
+      <h3 class="text-4xl font-bold">Skills</h3>
       <div class="flex justify-center gap-8 mt-10" id="tech-wave">
           <img src="./images/c.png" alt="Node.js" class="w-12 h-12 wave" />
           <img src="./images/cpp.png" alt="MongoDB" class="w-12 h-12 wave" />
@@ -75,82 +119,104 @@
     </div>
   </section>
 
- <!-- Projects Section with Scroll-Triggered Slide Animation -->
-<section id="projects" class="py-15 pb-10 overflow-hidden">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-4xl font-bold">Projects</h3>
-      <div class="flex flex-col gap-20 mt-10">
-        <a href="https://10-x-study-dc.vercel.app/" target="_blank" class="opacity-0 project flex" id="project1">
-          <img src="./images/10x.png" alt="Online Study" class="rounded-lg mx-auto w-56" />
-          <div><h4 class="text-xl font-bold mt-4">Online study Website</h4>
-            <p class="mt-2 text-gray-400">A fully responsive 10x Radar website built with React, offering a seamless online learning experience. It features a clean, modern UI with adaptable layouts for all devices, ensuring an excellent user experience.</p></div>
-        </a>
-        <a href="https://traveling-expense-dc.vercel.app/" target="_blank" class="opacity-0 project flex" id="project1">
-          <img src="./images/Travel.png" alt="Online Study" class="rounded-lg mx-auto w-56" />
-          <div><h4 class="text-xl font-bold mt-4">Travel Expense Website</h4>
-            <p class="mt-2 text-gray-400">A fully responsive Travel Expense website built with React, offering a seamless expense tracking experience. It features a clean, modern UI with adaptable layouts for all devices, ensuring an excellent user experience.</p></div>
-        </a>
-        <a href="https://e-commerce-furniro-l7lm.vercel.app/" target="_blank" class="opacity-0 project flex" id="project1">
-          <img src="./images/furniro.png" alt="E-Commerce" class="rounded-lg mx-auto w-56" />
-          <div><h4 class="text-xl font-bold mt-4">E-Commerce Website</h4>
-            <p class="mt-2 text-gray-400">A fully responsive Furniro website built with Tailwind CSS, offering a seamless online furniture shopping experience. It includes a clean, modern UI with adaptable layouts for all devices, ensuring an excellent user experience.</p></div>
-        </a>
-        
-        <a href="https://razor-pay-dc-clone-ggkg.vercel.app/" target="_blank" class="opacity-0 project flex" id="project2">
-          <img src="./images/razorpay.png" alt="Razorpay" class="rounded-lg mx-auto w-56"  />
-          <div>
-            <h4 class="text-xl font-bold mt-4">Razorpay Clone</h4>
+<!-- Projects Section -->
+<section id="projects" class="pt-10 mb-32 overflow-hidden">
+  <div class="container mx-auto px-6 text-center">
+    <h3 class="text-4xl font-bold">Projects</h3>
+    <div class="flex flex-col gap-20 mt-10">
+      <!-- Project 1: Online Study Website -->
+      <a href="https://10-x-study-dc.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/10x.png" alt="Online Study" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">Online Study Website</h4>
+          <p class="mt-2 text-gray-400">A fully responsive 10x Radar website built with React, offering a seamless online learning experience. It features a clean, modern UI with adaptable layouts for all devices, ensuring an excellent user experience.</p>
+        </div>
+      </a>
+
+      <!-- Project 2: Travel Expense Website -->
+      <a href="https://traveling-expense-dc.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/Travel.png" alt="Travel Expense" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">Travel Expense Website</h4>
+          <p class="mt-2 text-gray-400">A fully responsive Travel Expense website built with React, offering a seamless expense tracking experience. It features a clean, modern UI with adaptable layouts for all devices, ensuring an excellent user experience.</p>
+        </div>
+      </a>
+
+      <!-- Project 3: E-Commerce Website -->
+      <a href="https://e-commerce-furniro-l7lm.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/furniro.png" alt="E-Commerce" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">E-Commerce Website</h4>
+          <p class="mt-2 text-gray-400">A fully responsive Furniro website built with Tailwind CSS, offering a seamless online furniture shopping experience. It includes a clean, modern UI with adaptable layouts for all devices, ensuring an excellent user experience.</p>
+        </div>
+      </a>
+
+      <!-- Project 4: Razorpay Clone -->
+      <a href="https://razor-pay-dc-clone-ggkg.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/razorpay.png" alt="Razorpay" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">Razorpay Clone</h4>
           <p class="mt-2 text-gray-400">A fully responsive Razorpay clone built with Tailwind CSS, offering seamless online payment solutions. It includes a clean, modern UI with adaptable layouts for all devices, ensuring an excellent user experience.</p>
-          </div>
-        </a>
-        <a href="https://portfolio-in-html-css.vercel.app/" target="_blank" class="opacity-0 project flex" id="project2">
-          <img src="./images/portfolio.png" alt="Razorpay" class="rounded-lg mx-auto w-56"  />
-          <div>
-            <h4 class="text-xl font-bold mt-4">PortFolio </h4>
+        </div>
+      </a>
+
+      <!-- Project 5: Portfolio Website -->
+      <a href="https://portfolio-in-html-css.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/portfolio.png" alt="Portfolio" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">Portfolio Website</h4>
           <p class="mt-2 text-gray-400">A fully responsive portfolio website built with HTML and CSS, showcasing projects and skills with a clean, modern design. It offers an elegant user experience across all devices.</p>
-          </div>
-        </a>
-        
-        <a href="https://weather-app-dc-api.vercel.app/" target="_blank" class="opacity-0 project flex" id="project4">
-          <img src="./images/weather.png" alt="Weather" class="rounded-lg mx-auto w-56" />
-          <div>
-            
-            <h4 class="text-xl font-bold mt-4">Weather App Website</h4>
+        </div>
+      </a>
+
+      <!-- Project 6: Weather App Website -->
+      <a href="https://weather-app-dc-api.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/weather.png" alt="Weather App" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">Weather App Website</h4>
           <p class="mt-2 text-gray-400">A weather app built using HTML, TailwindCSS, and JavaScript that provides real-time weather updates using API integration.</p>
-          </div>
-        </a>
-        <a href="https://gallery-fawn-sigma.vercel.app/" target="_blank" class="opacity-0 project flex" id="project3">
-          <img src="./images/Gallery.png" alt="Blog App" class="rounded-lg mx-auto w-56" />
-          <div>
-            <h4 class="text-xl font-bold mt-4">My Gallery</h4>
+        </div>
+      </a>
+
+      <!-- Project 7: My Gallery -->
+      <a href="https://gallery-fawn-sigma.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/Gallery.png" alt="My Gallery" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">My Gallery</h4>
           <p class="mt-2 text-gray-400">A fully responsive My Gallery website built with HTML and CSS, offering a seamless way to showcase images with a clean, modern design. It provides an elegant user experience across all devices.</p>
-          </div>
-        </a>
-        <a href="https://parallex-effect-dc.vercel.app/" target="_blank" class="opacity-0 project flex" id="project3">
-          <img src="./images/parallex.png" alt="Blog App" class="rounded-lg mx-auto w-56" />
-          <div>
-            <h4 class="text-xl font-bold mt-4">Parallex Effect</h4>
+        </div>
+      </a>
+
+      <!-- Project 8: Parallax Effect -->
+      <a href="https://parallex-effect-dc.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/parallex.png" alt="Parallax Effect" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">Parallax Effect</h4>
           <p class="mt-2 text-gray-400">A fully responsive parallax website created using HTML and CSS, featuring immersive scrolling effects and smooth animations. It provides a visually engaging user experience with layered backgrounds and dynamic depth.</p>
-          </div>
-        </a>
-        <a href="https://password-generator-dc.vercel.app/" target="_blank" class="opacity-0 project flex" id="project3">
-          <img src="./images/password.png" alt="Paasword png" class="rounded-lg mx-auto w-56" />
-          <div>
-            <h4 class="text-xl font-bold mt-4">Password Generator</h4>
+        </div>
+      </a>
+
+      <!-- Project 9: Password Generator -->
+      <a href="https://password-generator-dc.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/password.png" alt="Password Generator" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">Password Generator</h4>
           <p class="mt-2 text-gray-400">A simple and secure password generator built using HTML, CSS, and JavaScript. It creates strong, customizable passwords with options for length, special characters, numbers, and uppercase letters, ensuring enhanced security for users.</p>
-          </div>
-        </a>
-        <a href="https://animationdc.vercel.app/" target="_blank" class="opacity-0 project flex" id="project3">
-          <img src="./images/animation.png" alt="Paasword png" class="rounded-lg mx-auto w-56" />
-          <div>
-            <h4 class="text-xl font-bold mt-4">3D Animated</h4>
+        </div>
+      </a>
+
+      <!-- Project 10: 3D Animated Website -->
+      <a href="https://animationdc.vercel.app/" target="_blank" class="opacity-0 project flex flex-col md:flex-row items-center gap-6">
+        <img src="./images/animation.png" alt="3D Animated Website" class="w-56 md:w-64 lg:w-72 rounded-lg mx-auto" />
+        <div>
+          <h4 class="text-xl font-bold mt-4">3D Animated Website</h4>
           <p class="mt-2 text-gray-400">A fully responsive 3D animated website built using HTML, CSS, and JavaScript. It features immersive parallax effects, smooth animations, and interactive elements, offering a visually engaging user experience with dynamic depth and seamless transitions.</p>
-          </div>
-        </a>
-        
-      </div>
+        </div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
   
 
   <!-- Contact Section -->
@@ -169,10 +235,10 @@
     gsap.registerPlugin(ScrollTrigger);
 
     // Sequential Hero Animation with Left Slide Effect
-    gsap.to('#name', {opacity: 1, x: 0, duration: 1});
-    gsap.to('#role', {opacity: 1, x: 0, duration: 1, delay: 1});
-    gsap.to('#about', {opacity: 1, x: 0, duration: 1, delay: 2});
-    gsap.to(['#resume', '#profile-pic'], {opacity: 1, x: 0, duration: 1, delay: 3});
+    gsap.to('#name', {opacity: 1, x: 0, duration: 0.5});
+    gsap.to('#role', {opacity: 1, x: 0, duration: 0.5, delay: 0.5});
+    gsap.to('#about', {opacity: 1, x: 0, duration: 0.5, delay: 1});
+    gsap.to(['#resume', '#profile-pic'], {opacity: 1, x: 0, duration: 0.5, delay: 1.5});
 
     // Technologies Wave Animation
     gsap.to('.wave', {
